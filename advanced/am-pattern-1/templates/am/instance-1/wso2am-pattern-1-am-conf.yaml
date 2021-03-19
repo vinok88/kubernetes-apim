@@ -45,18 +45,19 @@ data:
     type = "database_unique_id"
 
     [database.apim_db]
-    type = "mysql"
-    url = "jdbc:mysql://wso2am-mysql-db-service:3306/WSO2AM_DB?useSSL=false&amp;autoReconnect=true&amp;requireSSL=false&amp;verifyServerCertificate=false"
-    username = "wso2carbon"
-    password = "wso2carbon"
-    driver = "com.mysql.cj.jdbc.Driver"
+    type = "postgre"
+    url = "jdbc:postgresql://34.122.123.65:5432/am_db"
+    username = "postgresadmin"
+    password = "admin123"
+    driver = "org.postgresql.Driver"
+    validationQuery = "SELECT 1"
 
     [database.shared_db]
-    type = "mysql"
-    url = "jdbc:mysql://wso2am-mysql-db-service:3306/WSO2AM_SHARED_DB?useSSL=false&amp;autoReconnect=true&amp;requireSSL=false&amp;verifyServerCertificate=false"
-    username = "wso2carbon"
-    password = "wso2carbon"
-    driver = "com.mysql.cj.jdbc.Driver"
+    type = "postgre"
+    url = "jdbc:postgresql://34.122.123.65:5432/shared_db"
+    username = "postgresadmin"
+    password = "admin123"
+    driver = "org.postgresql.Driver"
 
     [keystore.tls]
     file_name =  "wso2carbon.jks"

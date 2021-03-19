@@ -23,7 +23,7 @@ wso2:
   deployment:
     dependencies:
       # The configuration should be set to be 'true' if a MySQL database should be spawned as a pod within the cluster
-      mysql: true
+      mysql: false
       # Enable NFS dynamic provisioner for Kubernetes
       nfsServerProvisioner: true
 
@@ -82,10 +82,10 @@ wso2:
         # as per official documentation (https://apim.docs.wso2.com/en/latest/install-and-setup/install/installation-prerequisites/)
         requests:
           memory: "2Gi"
-          cpu: "2000m"
+          cpu: "1500m"
         limits:
           memory: "3Gi"
-          cpu: "3000m"
+          cpu: "2000m"
         # JVM settings
         # These are the resource allocation configurations associated with the JVM
         # Refer to the official documentation for advanced details (https://apim.docs.wso2.com/en/latest/install-and-setup/install/installation-prerequisites/)
@@ -160,14 +160,14 @@ wso2:
           # These are the minimum resource recommendations for running WSO2 Stream Processor based server profiles
           # as per official documentation (https://docs.wso2.com/display/SP440/Installation+Prerequisites)
           requests:
-            memory: "4Gi"
-            cpu: "2000m"
+            memory: "3Gi"
+            cpu: "1500m"
           # Please see the official documentation on WSO2 Stream Processor based Performance Analysis and Resource recommendations
           # (https://docs.wso2.com/display/SP440/Performance+Analysis+Results) and tune the limits according to your needs
           # where necessary
           limits:
-            memory: "4Gi"
-            cpu: "2000m"
+            memory: "3Gi"
+            cpu: "1500m"
           # JVM settings
           # These are the resource allocation configurations associated with the JVM
           # Refer to the official documentation for advanced details (https://docs.wso2.com/display/SP440/Installation+Prerequisites)
@@ -221,14 +221,14 @@ wso2:
           # These are the minimum resource recommendations for running WSO2 Stream Processor based server profiles
           # as per official documentation (https://docs.wso2.com/display/SP440/Installation+Prerequisites)
           requests:
-            memory: "4Gi"
-            cpu: "2000m"
+            memory: "3Gi"
+            cpu: "1500m"
           # Please see the official documentation on WSO2 Stream Processor based Performance Analysis and Resource recommendations
           # (https://docs.wso2.com/display/SP440/Performance+Analysis+Results) and tune the limits according to your needs
           # where necessary
           limits:
-            memory: "4Gi"
-            cpu: "2000m"
+            memory: "3Gi"
+            cpu: "1500m"
           # JVM settings
           # These are the resource allocation configurations associated with the JVM
           # Refer to the official documentation for advanced details (https://docs.wso2.com/display/SP440/Installation+Prerequisites)

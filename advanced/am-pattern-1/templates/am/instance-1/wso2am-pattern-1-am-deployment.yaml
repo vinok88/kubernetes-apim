@@ -34,11 +34,11 @@ spec:
         node: {{ template "am-pattern-1.resource.prefix" . }}-am-1
     spec:
       initContainers:
-        {{ if .Values.wso2.deployment.dependencies.mysql }}
-        - name: init-mysql-db
-          image: busybox:1.32
-          command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z "wso2am-mysql-db-service" 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL Server has started";']
-        - name: init-mysql-connector-download
+        # {{ if .Values.wso2.deployment.dependencies.mysql }}
+        # - name: init-mysql-db
+        #   image: busybox:1.32
+        #   command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z "wso2am-mysql-db-service" 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL Server has started";']
+        - name: init-postgre-connector-download
           image: busybox:1.32
           command:
             - /bin/sh
@@ -46,11 +46,11 @@ spec:
             - |
               set -e
               connector_version=8.0.17
-              wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/${connector_version}/mysql-connector-java-${connector_version}.jar -P /mysql-connector-jar/
+              wget https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.19/postgresql-42.2.19.jar -P /postgre-connector-jar/
           volumeMounts:
-            - name: mysql-connector-jar
-              mountPath: /mysql-connector-jar
-        {{ end }}
+            - name: postgre-connector-jar
+              mountPath: /postgre-connector-jar
+        # {{ end }}
         - name: init-am-analytics-worker
           image: busybox:1.32
           command: ['sh', '-c', 'echo -e "Checking for the availability of WSO2 API Manager Analytics Worker deployment"; while ! nc -z {{ template "am-pattern-1.resource.prefix" . }}-am-analytics-worker-service 7712; do sleep 1; printf "-"; done; echo -e "  >> WSO2 API Manager Analytics Worker has started";']
@@ -125,10 +125,10 @@ spec:
               mountPath: /home/wso2carbon/docker-entrypoint.sh
               subPath: docker-entrypoint.sh
             {{ end }}
-            {{ if .Values.wso2.deployment.dependencies.mysql }}
-            - name: mysql-connector-jar
-              mountPath: /home/wso2carbon/wso2-artifact-volume/repository/components/dropins
-            {{ end }}
+            # {{ if .Values.wso2.deployment.dependencies.mysql }}
+            - name: postgre-connector-jar
+              mountPath: /home/wso2carbon/wso2-artifact-volume/repository/components/lib
+            # {{ end }}
       serviceAccountName: {{ .Values.kubernetes.serviceAccount }}
       {{- if .Values.wso2.deployment.am.imagePullSecrets }}
       imagePullSecrets:
@@ -159,7 +159,7 @@ spec:
             name: {{ template "am-pattern-1.resource.prefix" . }}-am-conf-entrypoint
             defaultMode: 0407
         {{ end }}
-        {{ if .Values.wso2.deployment.dependencies.mysql }}
-        - name: mysql-connector-jar
+        # {{ if .Values.wso2.deployment.dependencies.mysql }}
+        - name: postgre-connector-jar
           emptyDir: {}
-        {{ end }}
+        # {{ end }}

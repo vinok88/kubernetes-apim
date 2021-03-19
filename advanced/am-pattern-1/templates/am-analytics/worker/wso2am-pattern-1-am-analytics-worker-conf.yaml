@@ -378,10 +378,10 @@ data:
           definition:
             type: RDBMS
             configuration:
-              jdbcUrl: 'jdbc:mysql://wso2am-mysql-db-service:3306/WSO2AM_PERMISSIONS_DB?useSSL=false'
-              username: wso2carbon
-              password: wso2carbon
-              driverClassName: com.mysql.cj.jdbc.Driver
+              jdbcUrl: 'jdbc:postgresql://34.122.123.65:5432/WSO2AM_PERMISSIONS_DB'
+              username: postgresadmin
+              password: admin123
+              driverClassName: org.postgresql.Driver
               maxPoolSize: 10
               idleTimeout: 60000
               connectionTestQuery: SELECT 1
@@ -411,10 +411,10 @@ data:
           definition:
             type: RDBMS
             configuration:
-              jdbcUrl: 'jdbc:mysql://wso2am-mysql-db-service:3306/WSO2AM_STATS_DB?useSSL=false'
-              username: wso2carbon
-              password: wso2carbon
-              driverClassName: com.mysql.cj.jdbc.Driver
+              jdbcUrl: 'jdbc:postgresql://34.122.123.65:5432/WSO2AM_STATS_DB?useSSL=false'
+              username: postgresadmin
+              password: admin123
+              driverClassName: org.postgresql.Driver
               maxPoolSize: 50
               idleTimeout: 60000
               connectionTestQuery: SELECT 1
@@ -430,13 +430,13 @@ data:
             type: RDBMS
             configuration:
               connectionTestQuery: "SELECT 1"
-              driverClassName: com.mysql.cj.jdbc.Driver
+              driverClassName: org.postgresql.Driver
               idleTimeout: 60000
               isAutoCommit: false
-              jdbcUrl: "jdbc:mysql://wso2am-mysql-db-service:3306/WSO2_CLUSTER_DB?useSSL=false"
+              jdbcUrl: "jdbc:postgresql://34.122.123.65:5432/WSO2_CLUSTER_DB?useSSL=false"
               maxPoolSize: 50
-              password: wso2carbon
-              username: wso2carbon
+              password: postgresadmin
+              username: admin123
               validationTimeout: 30000
 
         -
@@ -448,13 +448,13 @@ data:
             type: RDBMS
             configuration:
               connectionTestQuery: "SELECT 1"
-              driverClassName: com.mysql.cj.jdbc.Driver
+              driverClassName: org.postgresql.Driver
               idleTimeout: 60000
               isAutoCommit: false
-              jdbcUrl: "jdbc:mysql://wso2am-mysql-db-service:3306/WSO2_PERSISTENCE_DB?useSSL=false"
+              jdbcUrl: "jdbc:postgresql://34.122.123.65:5432/WSO2_PERSISTENCE_DB?useSSL=false"
               maxPoolSize: 50
-              password: wso2carbon
-              username: wso2carbon
+              password: postgresadmin
+              username: admin123
               validationTimeout: 30000
 
     siddhi:
