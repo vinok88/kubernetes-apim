@@ -47,7 +47,7 @@ spec:
           volumeMounts:
             - name: mysql-connector-jar
               mountPath: /mysql-connector-jar
-      {{ end }}
+      # {{ end }}
       containers:
         - name: wso2am-analytics-worker
 {{- include "image" (dict "Values" .Values "deployment" .Values.wso2.deployment.analytics.worker) | indent 10 }}
