@@ -27,5 +27,5 @@ spec:
       name: 'analytics-dashboard'
       port: 9643
       protocol: TCP
-  type: LoadBalancer
+  type: NodePort
 

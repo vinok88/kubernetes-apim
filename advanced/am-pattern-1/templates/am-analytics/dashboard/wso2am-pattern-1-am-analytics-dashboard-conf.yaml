@@ -367,7 +367,7 @@ data:
            - message-tracing-app-template
       # credentials for worker nodes
       username: admin
-      password: admin
+      password: rigonblick
 
     wso2.transport.http:
       transportProperties:
@@ -413,12 +413,12 @@ data:
         adminScope: apim_analytics:admin_carbon.super
         allScopes: apim_analytics:admin openid apim:api_view apim:subscribe apim_analytics:monitoring_dashboard:own apim_analytics:monitoring_dashboard:edit apim_analytics:monitoring_dashboard:view apim_analytics:business_analytics:own apim_analytics:business_analytics:edit apim_analytics:business_analytics:view apim_analytics:api_analytics:own apim_analytics:api_analytics:edit apim_analytics:api_analytics:view apim_analytics:application_analytics:own apim_analytics:application_analytics:edit apim_analytics:application_analytics:view
         adminUsername: admin
-        adminPassword: admin
+        adminPassword: rigonblick
         kmDcrUrl: https://{{ template "am-pattern-1.resource.prefix" . }}-am-service:9443/client-registration/v0.17/register
         kmTokenUrlForRedirection: https://{{ .Values.wso2.deployment.am.ingress.management.hostname }}/oauth2
         kmTokenUrl: https://{{ template "am-pattern-1.resource.prefix" . }}-am-service:9443/oauth2
         kmUsername: admin
-        kmPassword: admin
+        kmPassword: rigonblick
         portalAppContext: analytics-dashboard
         businessRulesAppContext : business-rules
         cacheTimeout: 30
